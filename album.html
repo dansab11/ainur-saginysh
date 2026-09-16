@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Фотоальбом — Айнур &amp; Сагыныш</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grain"></div>
+<div class="vignette"></div>
+
+<header>
+  <div class="logo"><span class="dot-n">N</span>netfilm<span>.studio</span></div>
+  <nav id="siteNav">
+    <a href="index.html#top">Главная</a>
+    <a href="episodes.html">Эпизоды</a>
+    <a href="#" data-open-map>Карта любви</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" type="button" aria-label="Меню" aria-expanded="false">☰</button>
+</header>
+
+<div class="page-hero wrap">
+  <a href="index.html#top" class="back-link">← На главную</a>
+  <h1 class="page-title">Любимые места</h1>
+  <p class="page-desc">Заведения и уголки городов, которые уже стали своими. Фото добавляются по мере поездок.</p>
+</div>
+
+<div class="wrap album-grid">
+  <div class="polaroid" style="--tilt:-3deg;">
+    <div class="frame"><span class="icon">🖼</span><span>фото скоро здесь</span></div>
+  </div>
+  <div class="polaroid" style="--tilt:2deg;">
+    <div class="frame"><span class="icon">🖼</span><span>фото скоро здесь</span></div>
+  </div>
+  <div class="polaroid" style="--tilt:-2deg;">
+    <div class="frame"><span class="icon">🖼</span><span>фото скоро здесь</span></div>
+  </div>
+  <div class="polaroid" style="--tilt:4deg;">
+    <div class="frame"><span class="icon">🖼</span><span>фото скоро здесь</span></div>
+  </div>
+  <div class="polaroid" style="--tilt:-4deg;">
+    <div class="frame"><span class="icon">🖼</span><span>фото скоро здесь</span></div>
+  </div>
+  <div class="polaroid" style="--tilt:3deg;">
+    <div class="frame"><span class="icon">🖼</span><span>фото скоро здесь</span></div>
+  </div>
+</div>
+
+<footer class="wrap">
+  <div class="profile-card">
+    <div class="profile-left">
+      <div class="avatar">А+С</div>
+      <div>
+        <div class="profile-name">Айнур &amp; Сагыныш</div>
+        <div class="profile-sub">netfilm.studio · Premium</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot-note">
+    <span>Встретились в Астане — между Актау и Семеем</span>
+    <span>netfilm.studio</span>
+  </div>
+</footer>
+
+<div class="map-modal-overlay" id="mapModal">
+  <div class="map-modal">
+    <button class="map-modal-close" type="button" data-close-map aria-label="Закрыть карту">✕</button>
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">География</div>
+        <h2 class="section-title">Карта <span class="accent">нашей любви</span></h2>
+      </div>
+    </div>
+    <div class="map-shell">
+      <div class="map-legend">
+        <span class="item"><span class="swatch sw-a"></span>Актау</span>
+        <span class="item"><span class="swatch sw-b"></span>Семей</span>
+        <span class="item"><span class="swatch sw-c"></span>Астана · встреча</span>
+      </div>
+
+      <svg class="kzmap" viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg" aria-label="Карта городов Казахстана с отмеченными Актау, Семеем и Астаной">
+        <path class="link-path link-a" d="M120,390 C 220,300 320,230 430,175" />
+        <path class="link-path link-s" d="M660,140 C 570,150 500,160 430,175" />
+        <circle class="pulse" cx="430" cy="175" r="10" />
+        <text class="meet-mark" x="430" y="175" text-anchor="middle" dy="-24" font-size="20" fill="var(--gold)">♥</text>
+
+        <g>
+          <circle class="city-dot" cx="115" cy="205" r="4"></circle>
+          <text class="city-label" x="126" y="209">Уральск</text>
+
+          <circle class="city-dot" cx="150" cy="300" r="4"></circle>
+          <text class="city-label" x="161" y="304">Атырау</text>
+
+          <circle class="city-dot" cx="245" cy="220" r="4"></circle>
+          <text class="city-label" x="256" y="224">Актобе</text>
+
+          <circle class="city-dot" cx="290" cy="95" r="4"></circle>
+          <text class="city-label" x="301" y="99">Костанай</text>
+
+          <circle class="city-dot" cx="345" cy="45" r="4"></circle>
+          <text class="city-label" x="356" y="49">Петропавловск</text>
+
+          <circle class="city-dot" cx="405" cy="95" r="4"></circle>
+          <text class="city-label" x="416" y="99">Кокшетау</text>
+
+          <circle class="city-dot major" cx="460" cy="245" r="4"></circle>
+          <text class="city-label major" x="471" y="249">Караганда</text>
+
+          <circle class="city-dot" cx="478" cy="228" r="3.2"></circle>
+          <text class="city-label" x="486" y="222">Темиртау</text>
+
+          <circle class="city-dot" cx="400" cy="315" r="4"></circle>
+          <text class="city-label" x="411" y="319">Жезказган</text>
+
+          <circle class="city-dot" cx="525" cy="290" r="4"></circle>
+          <text class="city-label" x="536" y="294">Балхаш</text>
+
+          <circle class="city-dot" cx="575" cy="95" r="4"></circle>
+          <text class="city-label" x="586" y="99">Павлодар</text>
+
+          <circle class="city-dot" cx="715" cy="168" r="4"></circle>
+          <text class="city-label" x="726" y="172">Усть-Каменогорск</text>
+
+          <circle class="city-dot" cx="335" cy="395" r="4"></circle>
+          <text class="city-label" x="346" y="399">Кызылорда</text>
+
+          <circle class="city-dot" cx="355" cy="470" r="4"></circle>
+          <text class="city-label" x="366" y="474">Туркестан</text>
+
+          <circle class="city-dot major" cx="345" cy="512" r="4"></circle>
+          <text class="city-label major" x="356" y="516">Шымкент</text>
+
+          <circle class="city-dot" cx="425" cy="492" r="4"></circle>
+          <text class="city-label" x="436" y="496">Тараз</text>
+
+          <circle class="city-dot" cx="612" cy="430" r="4"></circle>
+          <text class="city-label" x="623" y="434">Талдыкорган</text>
+
+          <circle class="city-dot major" cx="565" cy="480" r="4.5"></circle>
+          <text class="city-label major" x="576" y="484">Алматы</text>
+        </g>
+
+        <g class="node-highlight node-a" transform="translate(120,390)">
+          <circle r="14" fill="var(--gold)" opacity="0.16"></circle>
+          <circle class="core" r="6.5"></circle>
+          <text class="hlabel" x="15" y="-13">Актау</text>
+          <text class="node-tag" x="15" y="7" fill="var(--ink-faint)">точка начала</text>
+        </g>
+
+        <g class="node-highlight node-s" transform="translate(660,140)">
+          <circle r="14" fill="var(--accent)" opacity="0.16"></circle>
+          <circle class="core" r="6.5"></circle>
+          <text class="hlabel" x="15" y="-13">Семей</text>
+          <text class="node-tag" x="15" y="7" fill="var(--ink-faint)">точка начала</text>
+        </g>
+
+        <g class="node-highlight node-astana" transform="translate(430,175)">
+          <circle r="17" fill="var(--ink)" opacity="0.10"></circle>
+          <circle class="core" r="7.5"></circle>
+          <text class="hlabel" x="17" y="-15">Астана</text>
+          <text class="node-tag" x="17" y="9" fill="var(--ink-faint)">место встречи</text>
+        </g>
+      </svg>
+
+      <p class="map-caption">
+        <b>Актау</b> и <b>Семей</b> — города, где начиналась каждая из двух линий истории,
+        на разных концах страны. На карте они сходятся там же, где сошлись
+        и сами линии — в <b>Астане</b>, открывшей общую серию.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
