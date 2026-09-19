@@ -335,6 +335,8 @@
   }
   .polaroid .frame .icon{font-size:22px;opacity:0.55;}
   .polaroid .frame span{font-size:10.5px;font-weight:700;letter-spacing:0.03em;text-align:center;padding:0 12px;}
+  .polaroid .frame.photo{border:none;background:none;overflow:hidden;}
+  .polaroid .frame.photo img{width:100%;height:100%;object-fit:cover;display:block;}
 
   .about-text{flex:1;min-width:0;max-width:520px;}
   .about-eyebrow{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:0.04em;margin-bottom:10px;}
