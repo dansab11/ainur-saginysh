@@ -353,7 +353,7 @@
   .fact-bar b{color:var(--accent);font-weight:700;margin-right:4px;}
 
   /* ---------- footer ---------- */
-  footer{border-top:1px solid var(--line-soft);padding:60px 0 64px;}
+  footer{border-top:1px solid var(--line-soft);padding:60px 0 64px;margin-top:56px;}
   .profile-card{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between;}
   .profile-left{display:flex;align-items:center;gap:16px;}
   .avatar{
