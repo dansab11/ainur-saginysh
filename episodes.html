@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <div class="grain"></div>
@@ -15,12 +15,23 @@
 
 <header>
   <a href="index.html#top" class="logo-mono" aria-label="Айнур и Сагыныш"><span class="mono-badge">A<span class="mono-amp">&amp;</span>S</span></a>
-  <nav id="siteNav">
-    <a href="index.html#top">Главная</a>
-    <a href="episodes.html">Эпизоды</a>
-    <a href="#" data-open-map>Карта любви</a>
-  </nav>
-  <button class="nav-toggle" id="navToggle" type="button" aria-label="Меню" aria-expanded="false">☰</button>
+  <div class="header-right">
+    <nav id="siteNav">
+      <a href="index.html#top">Главная</a>
+      <a href="episodes.html">Эпизоды</a>
+      <a href="#" data-open-map>Карта любви</a>
+    </nav>
+    <div class="music-widget">
+      <button class="music-toggle" id="musicToggle" type="button" aria-label="Включить фоновую музыку" aria-pressed="false">
+        <span class="music-icon">♪</span>
+      </button>
+      <div class="music-hint" id="musicHint">Нажмите, чтобы включить музыку</div>
+    </div>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Меню" aria-expanded="false">☰</button>
+  </div>
+  <audio id="bgMusic" loop preload="none">
+    <source src="assets/song.mp3" type="audio/mpeg">
+  </audio>
 </header>
 
 <div class="page-hero wrap">
@@ -209,6 +220,6 @@
   </div>
 </div>
 
-<script src="script.js?v=3"></script>
+<script src="script.js?v=5"></script>
 </body>
 </html>
