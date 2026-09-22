@@ -140,4 +140,40 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  // ---- Live "together since" timer (from Dec 8, 2025) ----
+  var tMonths = document.getElementById('tMonths');
+  var tDays = document.getElementById('tDays');
+  var tMinutes = document.getElementById('tMinutes');
+  var tSeconds = document.getElementById('tSeconds');
+
+  if (tMonths && tDays && tMinutes && tSeconds) {
+    var startDate = new Date(2025, 11, 8, 0, 0, 0); // 8 Dec 2025
+
+    function updateLoveTimer() {
+      var now = new Date();
+      var months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
+      var anchor = new Date(startDate);
+      anchor.setMonth(anchor.getMonth() + months);
+      if (anchor > now) {
+        months -= 1;
+        anchor = new Date(startDate);
+        anchor.setMonth(anchor.getMonth() + months);
+      }
+      var diffMs = now - anchor;
+      if (diffMs < 0) diffMs = 0;
+      var days = Math.floor(diffMs / 86400000);
+      var remMs = diffMs - days * 86400000;
+      var minutes = Math.floor(remMs / 60000);
+      var seconds = Math.floor((remMs % 60000) / 1000);
+
+      tMonths.textContent = String(months);
+      tDays.textContent = String(days);
+      tMinutes.textContent = String(minutes);
+      tSeconds.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateLoveTimer();
+    setInterval(updateLoveTimer, 1000);
+  }
 });
