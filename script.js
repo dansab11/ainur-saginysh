@@ -164,8 +164,58 @@ document.addEventListener('DOMContentLoaded', function () {
     setInterval(updateLoveTimer, 1000);
   }
 
-  // ---- Graceful fallback for not-yet-uploaded photos ----
-  document.querySelectorAll('.polaroid-photo').forEach(function (img) {
+  // ---- Extension-robust photo loading ----
+  // Windows/Explorer often hides file extensions, so uploaded photos don't
+  // always end up named exactly ".jpg" — this tries the common variants in
+  // turn before giving up and showing the placeholder state.
+  var PHOTO_EXTENSIONS = ['jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG', 'webp', 'WEBP'];
+
+  function loadWithExtensionFallback(img, onAllFailed) {
+    var base = img.getAttribute('data-base');
+    if (!base) return;
+    var i = 0;
+    function tryNext() {
+      if (i >= PHOTO_EXTENSIONS.length) {
+        onAllFailed(img);
+        return;
+      }
+      img.src = base + '.' + PHOTO_EXTENSIONS[i];
+      i += 1;
+    }
+    img.addEventListener('error', tryNext);
+    tryNext();
+  }
+
+  // Polaroid-style photos (about section, album grid)
+  document.querySelectorAll('.polaroid-photo[data-base]').forEach(function (img) {
+    loadWithExtensionFallback(img, function () {
+      var frame = img.closest('.frame');
+      if (!frame) return;
+      frame.classList.remove('photo');
+      frame.innerHTML = '<span class="icon">🖼</span><span>фото скоро здесь</span>';
+    });
+  });
+
+  // Favorite-place thumbnails
+  document.querySelectorAll('.place-thumb img[data-base]').forEach(function (img) {
+    loadWithExtensionFallback(img, function () {
+      var thumb = img.closest('.place-thumb');
+      if (thumb) thumb.classList.add('empty');
+      img.remove();
+    });
+  });
+
+  // Movie / show posters
+  document.querySelectorAll('.movie-poster img[data-base]').forEach(function (img) {
+    loadWithExtensionFallback(img, function () {
+      var poster = img.closest('.movie-poster');
+      if (poster) poster.classList.add('empty');
+      img.remove();
+    });
+  });
+
+  // ---- Graceful fallback for not-yet-uploaded photos with a plain src ----
+  document.querySelectorAll('.polaroid-photo:not([data-base])').forEach(function (img) {
     function showFallback() {
       var frame = img.closest('.frame');
       if (!frame) return;
