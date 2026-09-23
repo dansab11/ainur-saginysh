@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Фотоальбом — Айнур &amp; Сагыныш</title>
+<title>Фотоальбом — Ainur &amp; Sagynysh</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 <div class="grain"></div>
@@ -22,16 +22,13 @@
       <a href="#" data-open-map>Карта любви</a>
     </nav>
     <div class="music-widget">
-      <button class="music-toggle" id="musicToggle" type="button" aria-label="Включить фоновую музыку" aria-pressed="false">
+      <a class="music-toggle" id="musicToggle" href="https://music.yandex.ru/playlists/5e656d01-858e-7364-95cb-9ac588b73949?ref_id=126BF9ED-BFCC-404F-B212-8576F4D4FB7E&amp;utm_medium=copy_link" target="_blank" rel="noopener" aria-label="Открыть наш плейлист в Яндекс Музыке">
         <span class="music-icon">♪</span>
-      </button>
-      <div class="music-hint" id="musicHint">Нажмите, чтобы включить музыку</div>
+      </a>
+      <div class="music-hint" id="musicHint">Нажмите — откроется наш плейлист</div>
     </div>
     <button class="nav-toggle" id="navToggle" type="button" aria-label="Меню" aria-expanded="false">☰</button>
   </div>
-  <audio id="bgMusic" loop preload="none">
-    <source src="assets/song.mp3" type="audio/mpeg">
-  </audio>
 </header>
 
 <div class="page-hero wrap">
@@ -42,28 +39,28 @@
 
 <div class="wrap album-grid">
   <div class="polaroid" style="--tilt:-3deg;">
-    <div class="frame photo"><img src="assets/album-1.jpg" alt="Айнур и Сагыныш" onerror="this.parentElement.classList.remove('photo');this.insertAdjacentHTML('afterend','&lt;span class=&quot;icon&quot;&gt;🖼&lt;/span&gt;&lt;span&gt;фото скоро здесь&lt;/span&gt;');this.remove();"></div>
+    <div class="frame photo"><img class="polaroid-photo" src="assets/album-1.jpg" alt="Айнур и Сагыныш"></div>
   </div>
   <div class="polaroid" style="--tilt:2deg;">
-    <div class="frame photo"><img src="assets/album-2.jpg" alt="Айнур и Сагыныш" onerror="this.parentElement.classList.remove('photo');this.insertAdjacentHTML('afterend','&lt;span class=&quot;icon&quot;&gt;🖼&lt;/span&gt;&lt;span&gt;фото скоро здесь&lt;/span&gt;');this.remove();"></div>
+    <div class="frame photo"><img class="polaroid-photo" src="assets/album-2.jpg" alt="Айнур и Сагыныш"></div>
   </div>
   <div class="polaroid" style="--tilt:-2deg;">
-    <div class="frame photo"><img src="assets/album-3.jpg" alt="Айнур и Сагыныш" onerror="this.parentElement.classList.remove('photo');this.insertAdjacentHTML('afterend','&lt;span class=&quot;icon&quot;&gt;🖼&lt;/span&gt;&lt;span&gt;фото скоро здесь&lt;/span&gt;');this.remove();"></div>
+    <div class="frame photo"><img class="polaroid-photo" src="assets/album-3.jpg" alt="Айнур и Сагыныш"></div>
   </div>
   <div class="polaroid" style="--tilt:4deg;">
-    <div class="frame photo"><img src="assets/album-4.jpg" alt="Айнур и Сагыныш" onerror="this.parentElement.classList.remove('photo');this.insertAdjacentHTML('afterend','&lt;span class=&quot;icon&quot;&gt;🖼&lt;/span&gt;&lt;span&gt;фото скоро здесь&lt;/span&gt;');this.remove();"></div>
+    <div class="frame photo"><img class="polaroid-photo" src="assets/album-4.jpg" alt="Айнур и Сагыныш"></div>
   </div>
   <div class="polaroid" style="--tilt:-4deg;">
-    <div class="frame photo"><img src="assets/album-5.jpg" alt="Айнур и Сагыныш" onerror="this.parentElement.classList.remove('photo');this.insertAdjacentHTML('afterend','&lt;span class=&quot;icon&quot;&gt;🖼&lt;/span&gt;&lt;span&gt;фото скоро здесь&lt;/span&gt;');this.remove();"></div>
+    <div class="frame photo"><img class="polaroid-photo" src="assets/album-5.jpg" alt="Айнур и Сагыныш"></div>
   </div>
   <div class="polaroid" style="--tilt:3deg;">
-    <div class="frame photo"><img src="assets/album-6.jpg" alt="Айнур и Сагыныш" onerror="this.parentElement.classList.remove('photo');this.insertAdjacentHTML('afterend','&lt;span class=&quot;icon&quot;&gt;🖼&lt;/span&gt;&lt;span&gt;фото скоро здесь&lt;/span&gt;');this.remove();"></div>
+    <div class="frame photo"><img class="polaroid-photo" src="assets/album-6.jpg" alt="Айнур и Сагыныш"></div>
   </div>
   <div class="polaroid" style="--tilt:-3deg;">
-    <div class="frame photo"><img src="assets/album-7.jpg" alt="Айнур и Сагыныш" onerror="this.parentElement.classList.remove('photo');this.insertAdjacentHTML('afterend','&lt;span class=&quot;icon&quot;&gt;🖼&lt;/span&gt;&lt;span&gt;фото скоро здесь&lt;/span&gt;');this.remove();"></div>
+    <div class="frame photo"><img class="polaroid-photo" src="assets/album-7.jpg" alt="Айнур и Сагыныш"></div>
   </div>
   <div class="polaroid" style="--tilt:2deg;">
-    <div class="frame photo"><img src="assets/album-8.jpg" alt="Айнур и Сагыныш" onerror="this.parentElement.classList.remove('photo');this.insertAdjacentHTML('afterend','&lt;span class=&quot;icon&quot;&gt;🖼&lt;/span&gt;&lt;span&gt;фото скоро здесь&lt;/span&gt;');this.remove();"></div>
+    <div class="frame photo"><img class="polaroid-photo" src="assets/album-8.jpg" alt="Айнур и Сагыныш"></div>
   </div>
 </div>
 
@@ -72,14 +69,12 @@
     <div class="profile-left">
       <div class="avatar">А+С</div>
       <div>
-        <div class="profile-name">Айнур &amp; Сагыныш</div>
-        <div class="profile-sub">netfilm.studio · Premium</div>
+        <div class="profile-name">Ainur &amp; Sagynysh</div>
       </div>
     </div>
   </div>
   <div class="foot-note">
     <span>Встретились в Астане — между Актау и Семеем</span>
-    <span>netfilm.studio</span>
   </div>
 </footer>
 
@@ -184,14 +179,15 @@
       </svg>
 
       <p class="map-caption">
-        <b>Актау</b> и <b>Семей</b> — города, где начиналась каждая из двух линий истории,
-        на разных концах страны. На карте они сходятся там же, где сошлись
-        и сами линии — в <b>Астане</b>, открывшей общую серию.
+        «С разных концов Казахстана мы пришли в один город — чтобы однажды
+        найти друг друга». Возможно, расстояние между <b>Актау</b> и <b>Семеём</b>
+        было огромным.<br>
+        Но расстояние между двумя сердцами оказалось всего лишь одной встречей.
       </p>
     </div>
   </div>
 </div>
 
-<script src="script.js?v=7"></script>
+<script src="script.js?v=10"></script>
 </body>
 </html>

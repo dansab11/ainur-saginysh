@@ -62,82 +62,69 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ---- Background music ----
+  // ---- Music link hint ----
   var musicToggle = document.getElementById('musicToggle');
   var musicHint = document.getElementById('musicHint');
-  var bgMusic = document.getElementById('bgMusic');
 
-  if (musicToggle && bgMusic) {
-    var musicIcon = musicToggle.querySelector('.music-icon');
-
-    function setMusicUI(isPlaying) {
-      musicToggle.classList.toggle('playing', isPlaying);
-      musicToggle.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
-      musicToggle.setAttribute('aria-label', isPlaying ? 'Выключить музыку' : 'Включить фоновую музыку');
-      if (musicIcon) musicIcon.textContent = isPlaying ? '♫' : '♪';
-    }
-
-    function hideHint() {
-      if (musicHint) musicHint.classList.remove('show');
-    }
-
-    function playMusic() {
-      var p = bgMusic.play();
-      if (p && p.then) {
-        p.then(function () {
-          setMusicUI(true);
-          try { localStorage.setItem('musicPlaying', '1'); } catch (e) {}
-        }).catch(function () {
-          setMusicUI(false);
-        });
-      } else {
-        setMusicUI(true);
-      }
-    }
-
-    function pauseMusic() {
-      bgMusic.pause();
-      setMusicUI(false);
-      try { localStorage.setItem('musicPlaying', '0'); } catch (e) {}
-    }
-
-    musicToggle.addEventListener('click', function () {
-      hideHint();
+  if (musicToggle && musicHint) {
+    function hideMusicHint() {
+      musicHint.classList.remove('show');
       try { localStorage.setItem('musicHintSeen', '1'); } catch (e) {}
-      if (bgMusic.paused) { playMusic(); } else { pauseMusic(); }
-    });
-
-    // Best-effort: resume playback state when navigating between pages.
-    // Browsers require a user gesture for audio, so this may silently
-    // stay paused until the visitor clicks the button again — that's fine.
-    var wasPlaying = false;
-    try { wasPlaying = localStorage.getItem('musicPlaying') === '1'; } catch (e) {}
-    if (wasPlaying) {
-      var savedTime = 0;
-      try { savedTime = parseFloat(localStorage.getItem('musicTime') || '0') || 0; } catch (e) {}
-      bgMusic.currentTime = savedTime;
-      playMusic();
     }
 
-    bgMusic.addEventListener('timeupdate', function () {
-      try { localStorage.setItem('musicTime', String(bgMusic.currentTime)); } catch (e) {}
-    });
+    musicToggle.addEventListener('click', hideMusicHint);
 
-    // First-visit hint bubble, shown once
     var hintSeen = false;
     try { hintSeen = !!localStorage.getItem('musicHintSeen'); } catch (e) {}
-    if (musicHint && !hintSeen) {
+    if (!hintSeen) {
       setTimeout(function () { musicHint.classList.add('show'); }, 1000);
-      setTimeout(function () {
-        hideHint();
-        try { localStorage.setItem('musicHintSeen', '1'); } catch (e) {}
-      }, 7000);
+      setTimeout(hideMusicHint, 7000);
     }
     document.addEventListener('click', function (e) {
-      if (musicHint && musicHint.classList.contains('show') && !musicToggle.contains(e.target)) {
-        hideHint();
-        try { localStorage.setItem('musicHintSeen', '1'); } catch (e) {}
+      if (musicHint.classList.contains('show') && !musicToggle.contains(e.target)) {
+        hideMusicHint();
       }
+    });
+  }
+
+  // ---- Episode video modal ----
+  var videoModal = document.getElementById('videoModal');
+  var videoPlayer = videoModal ? document.getElementById('videoPlayer') : null;
+  var videoModalTitle = videoModal ? document.getElementById('videoModalTitle') : null;
+  var videoOpeners = document.querySelectorAll('[data-video]');
+
+  function openVideo(src, title) {
+    if (!videoModal || !videoPlayer) return;
+    videoPlayer.setAttribute('src', src);
+    videoPlayer.setAttribute('title', title || '');
+    if (videoModalTitle) videoModalTitle.textContent = title || '';
+    videoModal.classList.add('open');
+    document.body.classList.add('modal-open');
+  }
+
+  function closeVideo() {
+    if (!videoModal || !videoPlayer) return;
+    videoModal.classList.remove('open');
+    document.body.classList.remove('modal-open');
+    videoPlayer.setAttribute('src', ''); // stops playback once closed
+  }
+
+  videoOpeners.forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      openVideo(el.getAttribute('data-video'), el.getAttribute('data-title'));
+    });
+  });
+
+  if (videoModal) {
+    videoModal.querySelectorAll('[data-close-video]').forEach(function (el) {
+      el.addEventListener('click', closeVideo);
+    });
+    videoModal.addEventListener('click', function (e) {
+      if (e.target === videoModal) closeVideo();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && videoModal.classList.contains('open')) closeVideo();
     });
   }
 
@@ -148,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var tSeconds = document.getElementById('tSeconds');
 
   if (tMonths && tDays && tMinutes && tSeconds) {
-    var startDate = new Date(2025, 11, 8, 0, 0, 0); // 8 Dec 2025
+    var startDate = new Date(2025, 11, 28, 0, 0, 0); // 28 Dec 2025
 
     function updateLoveTimer() {
       var now = new Date();
@@ -176,4 +163,14 @@ document.addEventListener('DOMContentLoaded', function () {
     updateLoveTimer();
     setInterval(updateLoveTimer, 1000);
   }
+
+  // ---- Graceful fallback for not-yet-uploaded photos ----
+  document.querySelectorAll('.polaroid-photo').forEach(function (img) {
+    img.addEventListener('error', function () {
+      var frame = img.closest('.frame');
+      if (!frame) return;
+      frame.classList.remove('photo');
+      frame.innerHTML = '<span class="icon">🖼</span><span>фото скоро здесь</span>';
+    }, { once: true });
+  });
 });

@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Все эпизоды — Айнур &amp; Сагыныш</title>
+<title>Все эпизоды — Ainur &amp; Sagynysh</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 <div class="grain"></div>
@@ -22,75 +22,45 @@
       <a href="#" data-open-map>Карта любви</a>
     </nav>
     <div class="music-widget">
-      <button class="music-toggle" id="musicToggle" type="button" aria-label="Включить фоновую музыку" aria-pressed="false">
+      <a class="music-toggle" id="musicToggle" href="https://music.yandex.ru/playlists/5e656d01-858e-7364-95cb-9ac588b73949?ref_id=126BF9ED-BFCC-404F-B212-8576F4D4FB7E&amp;utm_medium=copy_link" target="_blank" rel="noopener" aria-label="Открыть наш плейлист в Яндекс Музыке">
         <span class="music-icon">♪</span>
-      </button>
-      <div class="music-hint" id="musicHint">Нажмите, чтобы включить музыку</div>
+      </a>
+      <div class="music-hint" id="musicHint">Нажмите — откроется наш плейлист</div>
     </div>
     <button class="nav-toggle" id="navToggle" type="button" aria-label="Меню" aria-expanded="false">☰</button>
   </div>
-  <audio id="bgMusic" loop preload="none">
-    <source src="assets/song.mp3" type="audio/mpeg">
-  </audio>
 </header>
 
 <div class="page-hero wrap">
   <a href="index.html#top" class="back-link">← На главную</a>
   <h1 class="page-title">Все эпизоды</h1>
-  <p class="page-desc">Полная история Айнур и Сагыныш — от Актау и Семея до сегодняшнего дня.</p>
-  <div class="note-banner"><b>Скоро:</b> здесь появится видео каждого эпизода. Пока — обложки и описания.</div>
+  <p class="page-desc">История Айнур и Сагыныш — Intro и первая серия «baqytym».</p>
 </div>
 
 <div class="wrap episodes-page-grid">
-  <div class="ep-card grid">
+  <div class="ep-card grid" data-video="https://www.youtube.com/embed/Wzh6PS-kjfw?autoplay=1&rel=0" data-title="Intro for my love">
     <div class="ep-thumb photo">
+      <div class="grad"></div>
+      <span class="ep-num">INTRO</span>
+      <span class="ep-play">▶</span>
+      <span class="ep-city">Intro</span>
+    </div>
+    <div class="ep-body">
+      <h3>Intro for my love</h3>
+      <p>Короткое вступление к истории — то, с чего всё начинается.</p>
+    </div>
+  </div>
+
+  <div class="ep-card grid" data-video="https://www.youtube.com/embed/rCmhu5nebBA?autoplay=1&rel=0" data-title="baqytym">
+    <div class="ep-thumb" style="background:linear-gradient(150deg,#2A1420,#170A10 70%);">
       <div class="grad"></div>
       <span class="ep-num">ЭП. 01</span>
       <span class="ep-play">▶</span>
-      <span class="ep-city">Актау</span>
+      <span class="ep-city">baqytym</span>
     </div>
     <div class="ep-body">
-      <h3>Начало у моря</h3>
-      <p>Каспийский берег, соль в воздухе и первая версия истории, ещё не знающая своего продолжения.</p>
-    </div>
-  </div>
-
-  <div class="ep-card grid">
-    <div class="ep-thumb" style="background:linear-gradient(150deg,#2A1420,#170A10 70%);">
-      <div class="grad"></div>
-      <span class="ep-num">ЭП. 02</span>
-      <span class="ep-play">▶</span>
-      <span class="ep-city">Семей</span>
-    </div>
-    <div class="ep-body">
-      <h3>Параллельная линия</h3>
-      <p>За полторы тысячи километров разворачивается вторая сюжетная линия — та, что скоро встретится с первой.</p>
-    </div>
-  </div>
-
-  <div class="ep-card grid">
-    <div class="ep-thumb" style="background:linear-gradient(150deg,#2B2010,#170A10 70%);">
-      <div class="grad"></div>
-      <span class="ep-num">ЭП. 03</span>
-      <span class="ep-play">▶</span>
-      <span class="ep-city">Астана</span>
-    </div>
-    <div class="ep-body">
-      <h3>Точка пересечения</h3>
-      <p>Там, где сходятся линии на карте, сходятся и две истории — и дальше идёт уже одна.</p>
-    </div>
-  </div>
-
-  <div class="ep-card grid">
-    <div class="ep-thumb photo" style="background-position:50% 65%;">
-      <div class="grad"></div>
-      <span class="ep-num">ЭП. 04</span>
-      <span class="ep-play">▶</span>
-      <span class="ep-city">Сегодня</span>
-    </div>
-    <div class="ep-body">
-      <h3>Продолжение следует</h3>
-      <p>Новый эпизод выходит каждый день — без даты завершения сезона.</p>
+      <h3>baqytym</h3>
+      <p>Первая серия истории Айнур и Сагыныш.</p>
     </div>
   </div>
 </div>
@@ -100,14 +70,12 @@
     <div class="profile-left">
       <div class="avatar">А+С</div>
       <div>
-        <div class="profile-name">Айнур &amp; Сагыныш</div>
-        <div class="profile-sub">netfilm.studio · Premium</div>
+        <div class="profile-name">Ainur &amp; Sagynysh</div>
       </div>
     </div>
   </div>
   <div class="foot-note">
     <span>Встретились в Астане — между Актау и Семеем</span>
-    <span>netfilm.studio</span>
   </div>
 </footer>
 
@@ -212,14 +180,25 @@
       </svg>
 
       <p class="map-caption">
-        <b>Актау</b> и <b>Семей</b> — города, где начиналась каждая из двух линий истории,
-        на разных концах страны. На карте они сходятся там же, где сошлись
-        и сами линии — в <b>Астане</b>, открывшей общую серию.
+        «С разных концов Казахстана мы пришли в один город — чтобы однажды
+        найти друг друга». Возможно, расстояние между <b>Актау</b> и <b>Семеём</b>
+        было огромным.<br>
+        Но расстояние между двумя сердцами оказалось всего лишь одной встречей.
       </p>
     </div>
   </div>
 </div>
 
-<script src="script.js?v=7"></script>
+<div class="video-modal-overlay" id="videoModal">
+  <div class="video-modal">
+    <button class="video-modal-close" type="button" data-close-video aria-label="Закрыть видео">✕</button>
+    <div class="video-modal-title" id="videoModalTitle"></div>
+    <div class="video-frame-wrap">
+      <iframe id="videoPlayer" src="" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<script src="script.js?v=10"></script>
 </body>
 </html>
