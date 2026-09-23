@@ -166,11 +166,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ---- Graceful fallback for not-yet-uploaded photos ----
   document.querySelectorAll('.polaroid-photo').forEach(function (img) {
-    img.addEventListener('error', function () {
+    function showFallback() {
       var frame = img.closest('.frame');
       if (!frame) return;
       frame.classList.remove('photo');
       frame.innerHTML = '<span class="icon">🖼</span><span>фото скоро здесь</span>';
-    }, { once: true });
+    }
+    // If the image already failed before this script ran (common — images
+    // start loading as soon as the browser parses the <img> tag, which is
+    // well before this script executes at the end of the page), a plain
+    // 'error' listener attached now would miss the event entirely. So check
+    // the already-settled state first, and only listen for future failures.
+    if (img.complete) {
+      if (img.naturalWidth === 0) showFallback();
+    } else {
+      img.addEventListener('error', showFallback, { once: true });
+    }
   });
 });

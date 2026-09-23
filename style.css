@@ -121,6 +121,9 @@
     display:flex;align-items:flex-end;padding-bottom:70px;
     overflow:hidden;
   }
+  @media (max-width:760px){
+    .hero{align-items:flex-start;padding-top:112px;padding-bottom:48px;}
+  }
   .hero-bg{
     position:absolute;inset:0;
     background-image:url("assets/photo-main.jpg");
